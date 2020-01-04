@@ -74,7 +74,6 @@ final class DataProvider
         string ...$functions
     ): \Traversable {
         foreach ($functions as $function) {
-            $dataProvider = $function();
             try {
                 $dataProvider = (new \ReflectionFunction($function))->invoke();
             } catch (\ReflectionException $exception) {

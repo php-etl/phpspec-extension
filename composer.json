@@ -28,7 +28,8 @@
     "autoload": {
         "psr-4": {
             "Kiboko\\Component\\ETL\\PHPSpecExtension\\FastMap\\": "src/FastMap/",
-            "Kiboko\\Component\\ETL\\PHPSpecExtension\\Metadata\\": "src/Metadata/"
+            "Kiboko\\Component\\ETL\\PHPSpecExtension\\Metadata\\": "src/Metadata/",
+            "Kiboko\\Component\\ETL\\PHPSpecExtension\\DataProvider\\": "src/DataProvider/"
         }
     },
     "autoload-dev": {

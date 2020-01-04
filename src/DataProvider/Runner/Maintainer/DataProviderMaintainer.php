@@ -32,12 +32,28 @@ final class DataProviderMaintainer implements Maintainer
         }
 
         $arguments = $example->getProvidedData();
-        foreach ($example->getFunctionReflection()->getParameters() as $position => $parameter) {
-            if (!array_key_exists($position, $arguments)) {
+        $iterator = new \NoRewindIterator(new \ArrayIterator($example->getFunctionReflection()->getParameters()));
+        foreach ($iterator as $position => $parameter) {
+            if ($parameter->isVariadic()) {
+                throw new \LogicException('Variadic arguments is not supported by PHPSpec');
+                break;
+            }
+
+            if (array_key_exists($parameter->getName(), $arguments)) {
+                $collaborators->set($parameter->getName(), $arguments[$parameter->getName()]);
                 continue;
             }
 
-            $collaborators->set($parameter->getName(), $arguments[$position]);
+            if (array_key_exists($position, $arguments)) {
+                $collaborators->set($parameter->getName(), $arguments[$position]);
+                continue;
+            }
+        }
+
+        if ($iterator->valid()) {
+            foreach (array_slice($arguments, $iterator->key()) as $value) {
+                $collaborators->set($iterator->current()->getName(), $value);
+            }
         }
     }
 
