@@ -1,0 +1,70 @@
+<?php declare(strict_types=1);
+
+namespace Kiboko\Component\ETL\PHPSpecExtension\FastMap\Comparator;
+
+final class Comparator
+{
+    private static $objectComparator;
+
+    public static function isEqual($left, $right)
+    {
+        if (is_object($left) && is_object($right)) {
+            return self::isObjectsEqual($left, $right);
+        }
+
+        if (gettype($left) !== gettype($right)) {
+            return false;
+        }
+
+        return $left === $right;
+    }
+
+    public static function isNotEqual($left, $right)
+    {
+        if (is_object($left) && is_object($right)) {
+            return self::isObjectsNotEqual($left, $right);
+        }
+
+        if (gettype($left) !== gettype($right)) {
+            return true;
+        }
+
+        return $left !== $right;
+    }
+
+    private static function isObjectsEqual($left, $right): bool
+    {
+        $reflectionLeft = new \ReflectionObject($left);
+        $reflectionRight = new \ReflectionObject($right);
+
+        if ($reflectionLeft->getName() !== $reflectionRight->getName()) {
+            return false;
+        }
+
+        foreach ($reflectionLeft->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+            if (!self::isEqual($property->getValue($left), $property->getValue($right))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static function isObjectsNotEqual($left, $right): bool
+    {
+        $reflectionLeft = new \ReflectionObject($left);
+        $reflectionRight = new \ReflectionObject($right);
+
+        if ($reflectionLeft->getName() === $reflectionRight->getName()) {
+            return true;
+        }
+
+        foreach ($reflectionLeft->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+            if (!self::isNotEqual($property->getValue($left), $property->getValue($right))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}

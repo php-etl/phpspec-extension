@@ -2,6 +2,7 @@
 
 namespace Kiboko\Component\ETL\PHPSpecExtension\FastMap\Matcher;
 
+use Kiboko\Component\ETL\PHPSpecExtension\FastMap\Comparator\Comparator;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Exception\Example\NotEqualException;
 use PhpSpec\Formatter\Presenter\Value\ValuePresenter;
@@ -29,7 +30,7 @@ final class ExecuteUncompiledMapping extends BasicMatcher
     {
         list($input, $output, $expected) = $arguments;
 
-        return $subject($input, $output) == $expected;
+        return Comparator::isEqual($subject($input, $output), $expected);
     }
 
     /**

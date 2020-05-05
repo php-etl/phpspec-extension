@@ -2,6 +2,7 @@
 
 namespace Kiboko\Component\ETL\PHPSpecExtension\FastMap\Matcher;
 
+use Kiboko\Component\ETL\PHPSpecExtension\FastMap\Comparator\Comparator;
 use PhpParser\Builder;
 use PhpParser\Node;
 use PhpParser\PrettyPrinter\Standard;
@@ -32,7 +33,7 @@ final class ExecuteCompiledMapping extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        return $this->executeAST($subject, $arguments[0], $arguments[1]) === $arguments[2];
+        return Comparator::isEqual($this->executeAST($subject, $arguments[0], $arguments[1]), $arguments[2]);
     }
 
     /**
