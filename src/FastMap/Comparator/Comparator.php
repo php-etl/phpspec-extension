@@ -42,6 +42,14 @@ final class Comparator
         }
 
         foreach ($reflectionLeft->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+            if (!$property->isInitialized($left) && !$property->isInitialized($right)) {
+                continue;
+            }
+
+            if (!$property->isInitialized($left) || !$property->isInitialized($right)) {
+                return false;
+            }
+
             if (!self::isEqual($property->getValue($left), $property->getValue($right))) {
                 return false;
             }
@@ -60,6 +68,14 @@ final class Comparator
         }
 
         foreach ($reflectionLeft->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+            if (!$property->isInitialized($left) && !$property->isInitialized($right)) {
+                continue;
+            }
+
+            if (!$property->isInitialized($left) || !$property->isInitialized($right)) {
+                return true;
+            }
+
             if (!self::isNotEqual($property->getValue($left), $property->getValue($right))) {
                 return true;
             }
