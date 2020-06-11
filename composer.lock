@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c8a848a631b2a97f30a0d7d8fd15cdc",
+    "content-hash": "54c3cf044eddd1ee2b806e4d9e4a4118",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -135,25 +135,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/friends-of-phpspec/phpspec-code-coverage.git",
-                "reference": "b6b833efb002e47176595b998b9cb28660286d4b"
+                "reference": "ae163cb51a8278c22280ba9b3f083ffb16194947"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/friends-of-phpspec/phpspec-code-coverage/zipball/b6b833efb002e47176595b998b9cb28660286d4b",
-                "reference": "b6b833efb002e47176595b998b9cb28660286d4b",
+                "url": "https://api.github.com/repos/friends-of-phpspec/phpspec-code-coverage/zipball/ae163cb51a8278c22280ba9b3f083ffb16194947",
+                "reference": "ae163cb51a8278c22280ba9b3f083ffb16194947",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1",
+                "php": ">= 7.1.3",
                 "phpspec/phpspec": "^5.0 || ^6.0",
                 "phpunit/php-code-coverage": "^6.0 || ^7.0"
             },
             "conflict": {
-                "friendsofphp/php-cs-fixer": "2.16.0",
-                "sebastian/comparator": "<2.0"
+                "sebastian/comparator": "< 2.0"
             },
             "require-dev": {
-                "drupol/php-conventions": "^1",
+                "drupol/php-conventions": "^1.7.1",
                 "scrutinizer/ocular": "^1"
             },
             "suggest": {
@@ -213,7 +212,7 @@
                 "test",
                 "tests"
             ],
-            "time": "2020-01-10T15:28:55+00:00"
+            "time": "2020-06-02T08:14:19+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -497,35 +496,38 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "5.1.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "4aa28213acd9db1a60f325d93b78c673556b26e9"
+                "reference": "486aaa736e9e24f3e22a6545f6affb88f98e2602"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/4aa28213acd9db1a60f325d93b78c673556b26e9",
-                "reference": "4aa28213acd9db1a60f325d93b78c673556b26e9",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/486aaa736e9e24f3e22a6545f6affb88f98e2602",
+                "reference": "486aaa736e9e24f3e22a6545f6affb88f98e2602",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.5",
                 "ext-tokenizer": "*",
-                "php": "^7.1, <7.4",
+                "php": "^7.2, <7.5",
                 "phpspec/php-diff": "^1.0.0",
-                "phpspec/prophecy": "^1.7",
+                "phpspec/prophecy": "^1.9",
                 "sebastian/exporter": "^1.0 || ^2.0 || ^3.0",
-                "symfony/console": "^3.4 || ^4.0",
-                "symfony/event-dispatcher": "^3.4 || ^4.0",
-                "symfony/finder": "^3.4 || ^4.0",
-                "symfony/process": "^3.4 || ^4.0",
-                "symfony/yaml": "^3.4 || ^4.0"
+                "symfony/console": "^3.4 || ^4.0 || ^5.0",
+                "symfony/event-dispatcher": "^3.4 || ^4.0 || ^5.0",
+                "symfony/finder": "^3.4 || ^4.0 || ^5.0",
+                "symfony/process": "^3.4 || ^4.0 || ^5.0",
+                "symfony/yaml": "^3.4 || ^4.0 || ^5.0"
+            },
+            "conflict": {
+                "sebastian/comparator": "<1.2.4"
             },
             "require-dev": {
                 "behat/behat": "^3.3",
-                "phpunit/phpunit": "^5.7 || ^6.0",
-                "symfony/filesystem": "^3.4 || ^4.0"
+                "phpunit/phpunit": "^7.0",
+                "symfony/filesystem": "^3.4 || ^4.0 || ^5.0"
             },
             "suggest": {
                 "phpspec/nyan-formatters": "Adds Nyan formatters"
@@ -536,7 +538,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1.x-dev"
+                    "dev-master": "6.1.x-dev"
                 }
             },
             "autoload": {
@@ -574,7 +576,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2019-10-02T13:59:47+00:00"
+            "time": "2019-12-17T10:23:12+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -2615,9 +2617,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "friends-of-phpspec/phpspec-code-coverage": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
