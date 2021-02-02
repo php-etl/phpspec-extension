@@ -44,4 +44,4 @@ jobs:
                     args: --prefer-dist
                     php_version: 8.0
             -   name: PHP Spec
-                run: vendor/bin/phpspec run spec
+                run: bin/phpspec run spec

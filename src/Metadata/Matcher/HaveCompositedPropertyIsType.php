@@ -28,14 +28,14 @@ final class HaveCompositedPropertyIsType extends BasicMatcher
         $typeDeclaration = $subject->getProperty($property)->getType();
         if ($typeDeclaration instanceof ListTypeMetadata &&
             $typeDeclaration->getInner() instanceof ScalarTypeMetadata &&
-            is_a($typeDeclaration->getInner()->name, $type, true)
+            is_a($typeDeclaration->getInner()->getName(), $type, true)
         ) {
             return true;
         }
 
         if ($typeDeclaration instanceof CollectionTypeMetadata &&
-            $typeDeclaration->getType() instanceof ScalarTypeMetadata &&
-            is_a($typeDeclaration->getType()->name, $type, true)
+            $typeDeclaration->getInner() instanceof ScalarTypeMetadata &&
+            is_a($typeDeclaration->getInner()->getName(), $type, true)
         ) {
             return true;
         }

@@ -3,7 +3,7 @@
 namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
 use Kiboko\Component\Metadata\IncompatibleTypeException;
-use Kiboko\Component\Metadata\IterableTypeMetadataInterface;
+use Kiboko\Contract\Metadata\IterableTypeMetadataInterface;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Formatter\Presenter\Presenter;
 use PhpSpec\Matcher\BasicMatcher;

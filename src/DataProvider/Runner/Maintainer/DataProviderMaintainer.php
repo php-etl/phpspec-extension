@@ -36,7 +36,6 @@ final class DataProviderMaintainer implements Maintainer
         foreach ($iterator as $position => $parameter) {
             if ($parameter->isVariadic()) {
                 throw new \LogicException('Variadic arguments is not supported by PHPSpec');
-                break;
             }
 
             if (array_key_exists($parameter->getName(), $arguments)) {

@@ -6,7 +6,7 @@ final class Comparator
 {
     private static $objectComparator;
 
-    public static function isEqual($left, $right)
+    public static function isEqual($left, $right): bool
     {
         if (is_object($left) && is_object($right)) {
             return self::isObjectsEqual($left, $right);
@@ -19,7 +19,7 @@ final class Comparator
         return $left === $right;
     }
 
-    public static function isNotEqual($left, $right)
+    public static function isNotEqual($left, $right): bool
     {
         if (is_object($left) && is_object($right)) {
             return self::isObjectsNotEqual($left, $right);
@@ -32,7 +32,7 @@ final class Comparator
         return $left !== $right;
     }
 
-    private static function isObjectsEqual($left, $right): bool
+    private static function isObjectsEqual(object $left, object $right): bool
     {
         $reflectionLeft = new \ReflectionObject($left);
         $reflectionRight = new \ReflectionObject($right);
@@ -58,7 +58,7 @@ final class Comparator
         return true;
     }
 
-    private static function isObjectsNotEqual($left, $right): bool
+    private static function isObjectsNotEqual(object $left, object $right): bool
     {
         $reflectionLeft = new \ReflectionObject($left);
         $reflectionRight = new \ReflectionObject($right);

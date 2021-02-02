@@ -33,8 +33,8 @@ final class HaveCompositedMethodReturnIsType extends BasicMatcher
         }
 
         if ($typeDeclaration instanceof CollectionTypeMetadata &&
-            $typeDeclaration->getType() instanceof ScalarTypeMetadata &&
-            is_a((string) $typeDeclaration->getType(), $type, true)
+            $typeDeclaration->getInner() instanceof ScalarTypeMetadata &&
+            is_a((string) $typeDeclaration->getInner(), $type, true)
         ) {
             return true;
         }

@@ -75,7 +75,7 @@ final class ExecuteCompiledMapping extends BasicMatcher
 
         try {
             return $functionName($input, $output);
-        } catch (\Throwable $exception) {
+        } catch (\Exception $exception) {
             return new FailureException(sprintf(
                 'Did not expect an exception of type %s, during execution of code: %s.',
                 $this->presenter->presentException($exception),
