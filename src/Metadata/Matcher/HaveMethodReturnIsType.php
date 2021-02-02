@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\Metadata\Matcher;
+namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
-use Kiboko\Component\ETL\Metadata\ArrayTypeMetadata;
-use Kiboko\Component\ETL\Metadata\ClassReferenceMetadata;
-use Kiboko\Component\ETL\Metadata\ClassTypeMetadata;
-use Kiboko\Component\ETL\Metadata\CollectionTypeMetadata;
-use Kiboko\Component\ETL\Metadata\ListTypeMetadata;
+use Kiboko\Component\Metadata\ArrayTypeMetadata;
+use Kiboko\Component\Metadata\ClassReferenceMetadata;
+use Kiboko\Component\Metadata\ClassTypeMetadata;
+use Kiboko\Component\Metadata\CollectionTypeMetadata;
+use Kiboko\Component\Metadata\ListTypeMetadata;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Exception\Example\NotEqualException;
 use PhpSpec\Formatter\Presenter\Presenter;
@@ -14,17 +14,8 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class HaveMethodReturnIsType extends BasicMatcher
 {
-    /**
-     * @var Presenter
-     */
-    private $presenter;
-
-    /**
-     * @param Presenter $presenter
-     */
-    public function __construct(Presenter $presenter)
+    public function __construct(private Presenter $presenter)
     {
-        $this->presenter = $presenter;
     }
 
     public function supports(string $name, $subject, array $arguments): bool

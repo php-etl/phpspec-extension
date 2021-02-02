@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\DataProvider;
+namespace Kiboko\Component\PHPSpecExtension\DataProvider;
 
 use PhpSpec\Loader\Node\ExampleNode;
 
@@ -31,7 +31,7 @@ final class DataProvider
 
         if ($functionReflection instanceof \ReflectionMethod) {
             yield from $this->wrapMethodDataProvider($functionReflection, ...$matches[1]);
-        } else if ($functionReflection instanceof \ReflectionFunction) {
+        } elseif ($functionReflection instanceof \ReflectionFunction) {
             yield from $this->wrapFunctionDataProvider($functionReflection, ...$matches[1]);
         }
     }
@@ -47,7 +47,9 @@ final class DataProvider
                 $dataProvider = $classReflection->getMethod($method)->invoke($object);
             } catch (\ReflectionException $exception) {
                 throw new InvalidDataProvider(
-                    'The specified Data Provider method in the PHPSpec example does not exist.', 0, $exception
+                    'The specified Data Provider method in the PHPSpec example does not exist.',
+                    0,
+                    $exception
                 );
             }
 
@@ -78,7 +80,9 @@ final class DataProvider
                 $dataProvider = (new \ReflectionFunction($function))->invoke();
             } catch (\ReflectionException $exception) {
                 throw new InvalidDataProvider(
-                    'The specified Data Provider method in the PHPSpec example does not exist.', 0, $exception
+                    'The specified Data Provider method in the PHPSpec example does not exist.',
+                    0,
+                    $exception
                 );
             }
 

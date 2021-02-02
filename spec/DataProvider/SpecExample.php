@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace spec\Kiboko\Component\ETL\PHPSpecExtension\DataProvider;
+namespace spec\Kiboko\Component\PHPSpecExtension\DataProvider;
 
 use PhpSpec\ObjectBehavior;
 

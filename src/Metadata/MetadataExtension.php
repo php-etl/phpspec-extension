@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\Metadata;
+namespace Kiboko\Component\PHPSpecExtension\Metadata;
 
 use PhpSpec\Extension;
 use PhpSpec\ServiceContainer;

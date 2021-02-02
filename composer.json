@@ -23,19 +23,23 @@
         "symfony/expression-language": "^5.2",
         "symfony/inflector": "^5.2",
         "symfony/property-access": "^5.2",
-        "symfony/cache": "^5.2"
+        "symfony/cache": "^5.2",
+        "php-etl/metadata": "0.2.x-dev"
     },
     "autoload": {
         "psr-4": {
-            "Kiboko\\Component\\ETL\\PHPSpecExtension\\FastMap\\": "src/FastMap/",
-            "Kiboko\\Component\\ETL\\PHPSpecExtension\\Metadata\\": "src/Metadata/",
-            "Kiboko\\Component\\ETL\\PHPSpecExtension\\DataProvider\\": "src/DataProvider/"
+            "Kiboko\\Component\\PHPSpecExtension\\FastMap\\": "src/FastMap/",
+            "Kiboko\\Component\\PHPSpecExtension\\Metadata\\": "src/Metadata/",
+            "Kiboko\\Component\\PHPSpecExtension\\DataProvider\\": "src/DataProvider/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "spec\\Kiboko\\Component\\ETL\\PHPSpecExtension\\": "spec/"
+            "spec\\Kiboko\\Component\\PHPSpecExtension\\": "spec/"
         }
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "extra": {
         "branch-alias": {

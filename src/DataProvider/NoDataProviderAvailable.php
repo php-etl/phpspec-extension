@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\DataProvider;
+namespace Kiboko\Component\PHPSpecExtension\DataProvider;
 
 final class NoDataProviderAvailable extends \RuntimeException
 {

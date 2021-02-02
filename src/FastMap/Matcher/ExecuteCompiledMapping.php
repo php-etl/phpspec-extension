@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\FastMap\Matcher;
+namespace Kiboko\Component\PHPSpecExtension\FastMap\Matcher;
 
-use Kiboko\Component\ETL\PHPSpecExtension\FastMap\Comparator\Comparator;
+use Kiboko\Component\PHPSpecExtension\FastMap\Comparator\Comparator;
 use PhpParser\Builder;
 use PhpParser\Node;
 use PhpParser\PrettyPrinter\Standard;
@@ -13,17 +13,8 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class ExecuteCompiledMapping extends BasicMatcher
 {
-    /**
-     * @var Presenter
-     */
-    private $presenter;
-
-    /**
-     * @param Presenter $presenter
-     */
-    public function __construct(Presenter $presenter)
+    public function __construct(private Presenter $presenter)
     {
-        $this->presenter = $presenter;
     }
 
     public function supports(string $name, $subject, array $arguments): bool

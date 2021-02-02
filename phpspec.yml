@@ -16,6 +16,6 @@ formatter.name: pretty
 stop_on_failure: false
 suites:
   fastmap_suite:
-    namespace: Kiboko\Component\ETL\PHPSpecExtension
-    psr4_prefix: Kiboko\Component\ETL\PHPSpecExtension
+    namespace: Kiboko\Component\PHPSpecExtension
+    psr4_prefix: Kiboko\Component\PHPSpecExtension
     src_path: '%paths.config%'

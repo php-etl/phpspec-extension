@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace spec\Kiboko\Component\ETL\PHPSpecExtension\DataProvider\Listener;
+namespace spec\Kiboko\Component\PHPSpecExtension\DataProvider\Listener;
 
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\DataProvider;
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\Listener\DataProviderListener;
+use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
+use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvider;
+use Kiboko\Component\PHPSpecExtension\DataProvider\Listener\DataProviderListener;
 use PhpSpec\Event\SpecificationEvent;
 use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Loader\Node\SpecificationNode;
 use PhpSpec\ObjectBehavior;
-use spec\Kiboko\Component\ETL\PHPSpecExtension\DataProvider\SpecExample;
+use spec\Kiboko\Component\PHPSpecExtension\DataProvider\SpecExample;
 
 final class DataProviderListenerSpec extends ObjectBehavior
 {

@@ -1,26 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\Metadata\Matcher;
+namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
-use Kiboko\Component\ETL\Metadata\IncompatibleTypeException;
-use Kiboko\Component\ETL\Metadata\IterableTypeMetadataInterface;
+use Kiboko\Component\Metadata\IncompatibleTypeException;
+use Kiboko\Component\Metadata\IterableTypeMetadataInterface;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Formatter\Presenter\Presenter;
 use PhpSpec\Matcher\BasicMatcher;
 
 final class HaveCompositedMethodReturn extends BasicMatcher
 {
-    /**
-     * @var Presenter
-     */
-    private $presenter;
-
-    /**
-     * @param Presenter $presenter
-     */
-    public function __construct(Presenter $presenter)
+    public function __construct(private Presenter $presenter)
     {
-        $this->presenter = $presenter;
     }
 
     public function supports(string $name, $subject, array $arguments): bool

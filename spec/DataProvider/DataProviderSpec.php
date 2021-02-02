@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace spec\Kiboko\Component\ETL\PHPSpecExtension\DataProvider;
+namespace spec\Kiboko\Component\PHPSpecExtension\DataProvider;
 
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\DataProvider;
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\InvalidDataProvider;
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\NoDataProviderAvailable;
+use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvider;
+use Kiboko\Component\PHPSpecExtension\DataProvider\InvalidDataProvider;
+use Kiboko\Component\PHPSpecExtension\DataProvider\NoDataProviderAvailable;
 use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Locator\Resource;
 use PhpSpec\ObjectBehavior;

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\DataProvider\Runner\Maintainer;
+namespace Kiboko\Component\PHPSpecExtension\DataProvider\Runner\Maintainer;
 
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
+use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
 use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Runner\CollaboratorManager;
 use PhpSpec\Runner\Maintainer\Maintainer;

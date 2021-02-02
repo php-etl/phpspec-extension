@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace spec\Kiboko\Component\ETL\PHPSpecExtension\DataProvider\Runner\Maintainer;
+namespace spec\Kiboko\Component\PHPSpecExtension\DataProvider\Runner\Maintainer;
 
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\Runner\Maintainer\DataProviderMaintainer;
+use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
+use Kiboko\Component\PHPSpecExtension\DataProvider\Runner\Maintainer\DataProviderMaintainer;
 use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\ObjectBehavior;
 use PhpSpec\Runner\CollaboratorManager;
 use PhpSpec\Runner\MatcherManager;
 use PhpSpec\Specification;
-use spec\Kiboko\Component\ETL\PHPSpecExtension\DataProvider\SpecExample;
+use spec\Kiboko\Component\PHPSpecExtension\DataProvider\SpecExample;
 
 final class DataProviderMaintainerSpec extends ObjectBehavior
 {

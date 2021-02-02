@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\FastMap\Matcher;
+namespace Kiboko\Component\PHPSpecExtension\FastMap\Matcher;
 
-use Kiboko\Component\ETL\PHPSpecExtension\FastMap\Comparator\Comparator;
+use Kiboko\Component\PHPSpecExtension\FastMap\Comparator\Comparator;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Exception\Example\NotEqualException;
 use PhpSpec\Formatter\Presenter\Value\ValuePresenter;
@@ -10,15 +10,8 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class ExecuteUncompiledMapping extends BasicMatcher
 {
-    /** @var ValuePresenter */
-    private $presenter;
-
-    /**
-     * @param ValuePresenter $presenter
-     */
-    public function __construct(ValuePresenter $presenter)
+    public function __construct(private ValuePresenter $presenter)
     {
-        $this->presenter = $presenter;
     }
 
     public function supports(string $name, $subject, array $arguments): bool

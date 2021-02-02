@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\FastMap\Comparator;
+namespace Kiboko\Component\PHPSpecExtension\FastMap\Comparator;
 
 final class Comparator
 {

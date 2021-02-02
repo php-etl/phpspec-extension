@@ -1,21 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\DataProvider\Listener;
+namespace Kiboko\Component\PHPSpecExtension\DataProvider\Listener;
 
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
-use Kiboko\Component\ETL\PHPSpecExtension\DataProvider\DataProvider;
+use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvidedExampleNode;
+use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvider;
 use PhpSpec\Event\SpecificationEvent;
-use PhpSpec\Loader\Node\ExampleNode;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class DataProviderListener implements EventSubscriberInterface
 {
-    /** @var DataProvider */
-    private $dataProvider;
-
-    public function __construct(DataProvider $dataProvider)
-    {
-        $this->dataProvider = $dataProvider;
+    public function __construct(
+        private DataProvider $dataProvider
+    ) {
     }
 
     public static function getSubscribedEvents()

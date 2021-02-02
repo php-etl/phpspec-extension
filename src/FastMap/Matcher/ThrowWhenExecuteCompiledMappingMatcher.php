@@ -1,35 +1,28 @@
 <?php declare(strict_types=1);
 
-namespace Kiboko\Component\ETL\PHPSpecExtension\FastMap\Matcher;
+namespace Kiboko\Component\PHPSpecExtension\FastMap\Matcher;
 
-use PhpSpec\Formatter\Presenter\Value\ValuePresenter;
-use PhpSpec\Matcher\Matcher;
-use PhpSpec\Wrapper\Unwrapper;
-use PhpSpec\Wrapper\DelayedCall;
-use PhpSpec\Factory\ReflectionFactory;
-use PhpSpec\Exception\Example\MatcherException;
 use PhpSpec\Exception\Example\FailureException;
+use PhpSpec\Exception\Example\MatcherException;
 use PhpSpec\Exception\Example\NotEqualException;
 use PhpSpec\Exception\Fracture\MethodNotFoundException;
+use PhpSpec\Factory\ReflectionFactory;
+use PhpSpec\Formatter\Presenter\Value\ValuePresenter;
+use PhpSpec\Matcher\Matcher;
+use PhpSpec\Wrapper\DelayedCall;
+use PhpSpec\Wrapper\Unwrapper;
 
 final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
 {
     use ASTExecutionAwareTrait;
 
-    /** @var array */
-    private static $ignoredProperties = ['file', 'line', 'string', 'trace', 'previous'];
-    /** @var Unwrapper */
-    private $unwrapper;
-    /** @var ValuePresenter */
-    private $presenter;
-    /** @var ReflectionFactory */
-    private $factory;
+    private static array $ignoredProperties = ['file', 'line', 'string', 'trace', 'previous'];
 
-    public function __construct(Unwrapper $unwrapper, ValuePresenter $presenter, ?ReflectionFactory $factory)
-    {
-        $this->unwrapper = $unwrapper;
-        $this->presenter = $presenter;
-        $this->factory   = $factory;
+    public function __construct(
+        private Unwrapper $unwrapper,
+        private ValuePresenter $presenter,
+        private ?ReflectionFactory $factory
+    ) {
     }
 
     /**
@@ -128,7 +121,9 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
                             $property->getName(),
                             $this->presenter->presentValue($expected),
                             $this->presenter->presentValue($actual)
-                        ), $expected, $actual
+                        ),
+                        $expected,
+                        $actual
                     );
                 }
             }
