@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\FastMap\Matcher;
 
@@ -13,7 +15,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class ExecuteCompiledMapping extends BasicMatcher
 {
-    public function __construct(private Presenter $presenter)
+    public function __construct(private readonly Presenter $presenter)
     {
     }
 

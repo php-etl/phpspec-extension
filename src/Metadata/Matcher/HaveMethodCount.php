@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
@@ -9,7 +11,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class HaveMethodCount extends BasicMatcher
 {
-    public function __construct(private Presenter $presenter)
+    public function __construct(private readonly Presenter $presenter)
     {
     }
 
@@ -20,30 +22,30 @@ final class HaveMethodCount extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        list($count) = $arguments;
+        [$count] = $arguments;
 
-        return count($subject->getMethods()) === $count;
+        return (is_countable($subject->getMethods()) ? count($subject->getMethods()) : 0) === $count;
     }
 
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($count) = $arguments;
+        [$count] = $arguments;
 
         return new NotEqualException(sprintf(
             'Expected %d methods to be declared, but got %d.',
             $this->presenter->presentValue($count),
-            $this->presenter->presentValue(count($subject->getMethods()))
-        ), $count, count($subject->getMethods()));
+            $this->presenter->presentValue(is_countable($subject->getMethods()) ? count($subject->getMethods()) : 0)
+        ), $count, is_countable($subject->getMethods()) ? count($subject->getMethods()) : 0);
     }
 
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($count) = $arguments;
+        [$count] = $arguments;
 
         return new NotEqualException(sprintf(
             'Did not expect %d methods to be declared, but got %d.',
             $this->presenter->presentValue($count),
-            $this->presenter->presentValue(count($subject->getMethods()))
-        ), $count, count($subject->getMethods()));
+            $this->presenter->presentValue(is_countable($subject->getMethods()) ? count($subject->getMethods()) : 0)
+        ), $count, is_countable($subject->getMethods()) ? count($subject->getMethods()) : 0);
     }
 }

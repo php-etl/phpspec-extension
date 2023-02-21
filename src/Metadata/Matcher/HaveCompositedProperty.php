@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
@@ -9,7 +11,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class HaveCompositedProperty extends BasicMatcher
 {
-    public function __construct(private Presenter $presenter)
+    public function __construct(private readonly Presenter $presenter)
     {
     }
 
@@ -20,7 +22,7 @@ final class HaveCompositedProperty extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        list($property) = $arguments;
+        [$property] = $arguments;
 
         $typeDeclaration = $subject->getProperty($property)->getType();
         if ($typeDeclaration instanceof IterableTypeMetadataInterface) {
@@ -32,7 +34,7 @@ final class HaveCompositedProperty extends BasicMatcher
 
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($property) = $arguments;
+        [$property] = $arguments;
 
         return new FailureException(sprintf(
             'Expected the property %s to be a composite, but got %s.',
@@ -43,7 +45,7 @@ final class HaveCompositedProperty extends BasicMatcher
 
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($property) = $arguments;
+        [$property] = $arguments;
 
         return new FailureException(sprintf(
             'Expected the property %s to not be a composite.',

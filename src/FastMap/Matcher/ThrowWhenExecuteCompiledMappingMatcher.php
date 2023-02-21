@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\FastMap\Matcher;
 
@@ -19,9 +21,9 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
     private static array $ignoredProperties = ['file', 'line', 'string', 'trace', 'previous'];
 
     public function __construct(
-        private Unwrapper $unwrapper,
-        private ValuePresenter $presenter,
-        private ?ReflectionFactory $factory
+        private readonly Unwrapper $unwrapper,
+        private readonly ValuePresenter $presenter,
+        private readonly ?ReflectionFactory $factory
     ) {
     }
 
@@ -46,7 +48,7 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
      */
     public function positiveMatch(string $name, $subject, array $arguments): DelayedCall
     {
-        return $this->getDelayedCall([$this, 'verifyPositive'], $subject, $arguments);
+        return $this->getDelayedCall($this->verifyPositive(...), $subject, $arguments);
     }
 
     /**
@@ -58,7 +60,7 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
      */
     public function negativeMatch(string $name, $subject, array $arguments): DelayedCall
     {
-        return $this->getDelayedCall([$this, 'verifyNegative'], $subject, $arguments);
+        return $this->getDelayedCall($this->verifyNegative(...), $subject, $arguments);
     }
 
     /**
@@ -67,14 +69,12 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
      */
     public function verifyPositive($subject, array $arguments, $exception = null)
     {
-        list($input, $output) = $arguments;
+        [$input, $output] = $arguments;
         $exceptionThrown = null;
 
         try {
             $this->executeStatements($subject, $input, $output);
-        } catch (\Exception $e) {
-            $exceptionThrown = $e;
-        } catch (\Throwable $e) {
+        } catch (\Exception|\Throwable $e) {
             $exceptionThrown = $e;
         }
 
@@ -135,14 +135,12 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
      */
     public function verifyNegative($subject, array $arguments, $exception = null)
     {
-        list($input, $output) = $arguments;
+        [$input, $output] = $arguments;
         $exceptionThrown = null;
 
         try {
             $this->executeStatements($subject, $input, $output);
-        } catch (\Exception $e) {
-            $exceptionThrown = $e;
-        } catch (\Throwable $e) {
+        } catch (\Exception|\Throwable $e) {
             $exceptionThrown = $e;
         }
 
@@ -156,7 +154,7 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
         }
 
         if ($exceptionThrown && $exceptionThrown instanceof $exception) {
-            $invalidProperties = array();
+            $invalidProperties = [];
             if (\is_object($exception)) {
                 $exceptionRefl = $this->factory->create($exception);
                 foreach ($exceptionRefl->getProperties() as $property) {
@@ -204,14 +202,7 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
         return 1;
     }
 
-    /**
-     * @param callable $check
-     * @param mixed    $subject
-     * @param array    $arguments
-     *
-     * @return DelayedCall
-     */
-    private function getDelayedCall(callable $check, $subject, array $arguments): DelayedCall
+    private function getDelayedCall(callable $check, mixed $subject, array $arguments): DelayedCall
     {
         $exception = $this->getException($arguments);
         $unwrapper = $this->unwrapper;
@@ -221,13 +212,13 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
                 $arguments = $unwrapper->unwrapAll($arguments);
 
                 $methodName = $arguments[0];
-                $arguments = $arguments[1] ?? array();
-                $callable = array($subject, $methodName);
+                $arguments = $arguments[1] ?? [];
+                $callable = [$subject, $methodName];
 
-                list($class, $methodName) = array($subject, $methodName);
+                [$class, $methodName] = [$subject, $methodName];
                 if (!method_exists($class, $methodName) && !method_exists($class, '__call')) {
                     throw new MethodNotFoundException(
-                        sprintf('Method %s::%s not found.', \get_class($class), $methodName),
+                        sprintf('Method %s::%s not found.', $class::class, $methodName),
                         $class,
                         $methodName,
                         $arguments
@@ -240,7 +231,6 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
     }
 
     /**
-     * @param array $arguments
      *
      * @return null|string|\Throwable
      * @throws \PhpSpec\Exception\Example\MatcherException

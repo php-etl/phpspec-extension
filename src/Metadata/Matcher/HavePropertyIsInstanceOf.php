@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
@@ -12,7 +14,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class HavePropertyIsInstanceOf extends BasicMatcher
 {
-    public function __construct(private Presenter $presenter)
+    public function __construct(private readonly Presenter $presenter)
     {
     }
 
@@ -23,7 +25,7 @@ final class HavePropertyIsInstanceOf extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        list($property, $class) = $arguments;
+        [$property, $class] = $arguments;
 
         $typeDeclaration = $subject->getProperty($property)->getType();
         if (($typeDeclaration instanceof ClassTypeMetadata && is_a((string) $typeDeclaration, $class, true)) ||
@@ -38,7 +40,7 @@ final class HavePropertyIsInstanceOf extends BasicMatcher
 
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($property, $class) = $arguments;
+        [$property, $class] = $arguments;
 
         return new NotEqualException(sprintf(
             'Expected property %s to be an instance of %s, but got %s.',
@@ -50,7 +52,7 @@ final class HavePropertyIsInstanceOf extends BasicMatcher
 
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($property, $class) = $arguments;
+        [$property, $class] = $arguments;
 
         return new NotEqualException(sprintf(
             'Did not expect property %s to be an instance of %s.',

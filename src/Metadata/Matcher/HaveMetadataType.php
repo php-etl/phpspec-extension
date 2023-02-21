@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
@@ -10,7 +12,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class HaveMetadataType extends BasicMatcher
 {
-    public function __construct(private Presenter $presenter)
+    public function __construct(private readonly Presenter $presenter)
     {
     }
 
@@ -21,21 +23,21 @@ final class HaveMetadataType extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        list($type) = $arguments;
+        [$type] = $arguments;
 
         return Type::is($type, $subject);
     }
 
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($type) = $arguments;
+        [$type] = $arguments;
 
-        if (!is_a(get_class($subject), get_class($type))) {
+        if (!is_a($subject::class, $type::class)) {
             return new NotEqualException(sprintf(
                 'Expected to have %s type, but got %s.',
-                $this->presenter->presentValue(get_class($type)),
-                $this->presenter->presentValue(get_class($subject))
-            ), get_class($type), get_class($subject));
+                $this->presenter->presentValue($type::class),
+                $this->presenter->presentValue($subject::class)
+            ), $type::class, $subject::class);
         }
 
         return new FailureException(sprintf(
@@ -47,7 +49,7 @@ final class HaveMetadataType extends BasicMatcher
 
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($type) = $arguments;
+        [$type] = $arguments;
 
         return new FailureException(sprintf(
             'Did not expect to have %s type.',

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
@@ -14,7 +16,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class HaveMethodReturnIsType extends BasicMatcher
 {
-    public function __construct(private Presenter $presenter)
+    public function __construct(private readonly Presenter $presenter)
     {
     }
 
@@ -25,7 +27,7 @@ final class HaveMethodReturnIsType extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        list($method, $type) = $arguments;
+        [$method, $type] = $arguments;
         $typeDeclaration = $subject->getMethod($method)->getReturnType();
         if (($typeDeclaration instanceof ClassTypeMetadata && is_a((string) $typeDeclaration, $type, true)) ||
             ($typeDeclaration instanceof ClassReferenceMetadata && is_a((string) $typeDeclaration, $type, true)) ||
@@ -41,7 +43,7 @@ final class HaveMethodReturnIsType extends BasicMatcher
 
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($method, $type) = $arguments;
+        [$method, $type] = $arguments;
         return new NotEqualException(sprintf(
             'Expected method %s return to have %s type, but got %s.',
             $this->presenter->presentValue($method),
@@ -52,7 +54,7 @@ final class HaveMethodReturnIsType extends BasicMatcher
 
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($method, $type) = $arguments;
+        [$method, $type] = $arguments;
         return new NotEqualException(sprintf(
             'Did not expect method %s return to have %s type.',
             $this->presenter->presentValue($method),

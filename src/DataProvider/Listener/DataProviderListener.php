@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\DataProvider\Listener;
 
@@ -7,7 +9,7 @@ use Kiboko\Component\PHPSpecExtension\DataProvider\DataProvider;
 use PhpSpec\Event\SpecificationEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class DataProviderListener implements EventSubscriberInterface
+final readonly class DataProviderListener implements EventSubscriberInterface
 {
     public function __construct(
         private DataProvider $dataProvider

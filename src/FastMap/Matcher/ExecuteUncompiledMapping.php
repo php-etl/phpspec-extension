@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\FastMap\Matcher;
 
@@ -10,7 +12,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class ExecuteUncompiledMapping extends BasicMatcher
 {
-    public function __construct(private ValuePresenter $presenter)
+    public function __construct(private readonly ValuePresenter $presenter)
     {
     }
 
@@ -21,7 +23,7 @@ final class ExecuteUncompiledMapping extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        list($input, $output, $expected) = $arguments;
+        [$input, $output, $expected] = $arguments;
 
         return Comparator::isEqual($subject($input, $output), $expected);
     }
@@ -35,7 +37,7 @@ final class ExecuteUncompiledMapping extends BasicMatcher
      */
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($input, $output, $expected) = $arguments;
+        [$input, $output, $expected] = $arguments;
 
         return new NotEqualException(sprintf(
             'Expected %s, built from %s, but got %s.',
@@ -54,7 +56,7 @@ final class ExecuteUncompiledMapping extends BasicMatcher
      */
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($input, $output, $expected) = $arguments;
+        [$input, $output, $expected] = $arguments;
 
         return new FailureException(sprintf(
             'Did not expect %s, built from %s, but got one.',

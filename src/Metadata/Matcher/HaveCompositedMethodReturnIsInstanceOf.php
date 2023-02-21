@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\PHPSpecExtension\Metadata\Matcher;
 
@@ -13,7 +15,7 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class HaveCompositedMethodReturnIsInstanceOf extends BasicMatcher
 {
-    public function __construct(private Presenter $presenter)
+    public function __construct(private readonly Presenter $presenter)
     {
     }
 
@@ -24,7 +26,7 @@ final class HaveCompositedMethodReturnIsInstanceOf extends BasicMatcher
 
     protected function matches($subject, array $arguments): bool
     {
-        list($method, $class) = $arguments;
+        [$method, $class] = $arguments;
 
         $typeDeclaration = $subject->getMethod($method)->getReturnType();
         if ($typeDeclaration instanceof ListTypeMetadata &&
@@ -46,7 +48,7 @@ final class HaveCompositedMethodReturnIsInstanceOf extends BasicMatcher
 
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($method, $class) = $arguments;
+        [$method, $class] = $arguments;
 
         return new NotEqualException(sprintf(
             'Expected the method %s to return a composite with type %s, but got %s.',
@@ -58,7 +60,7 @@ final class HaveCompositedMethodReturnIsInstanceOf extends BasicMatcher
 
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
-        list($method, $class) = $arguments;
+        [$method, $class] = $arguments;
 
         return new NotEqualException(sprintf(
             'Expected the method %s to not return a composite with type %s.',
