@@ -21,9 +21,6 @@
         "friends-of-phpspec/phpspec-code-coverage": "^6",
         "doctrine/inflector": "^2.0",
         "nikic/php-parser": "^4.10",
-        "symfony/expression-language": "^5.2",
-        "symfony/inflector": "^5.2",
-        "symfony/property-access": "^5.2",
         "php-etl/metadata": "^0.4"
     },
     "autoload": {
