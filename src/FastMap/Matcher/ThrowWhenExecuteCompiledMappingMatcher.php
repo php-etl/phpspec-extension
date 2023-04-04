@@ -232,10 +232,9 @@ final class ThrowWhenExecuteCompiledMappingMatcher implements Matcher
 
     /**
      *
-     * @return null|string|\Throwable
      * @throws \PhpSpec\Exception\Example\MatcherException
      */
-    private function getException(array $arguments)
+    private function getException(array $arguments): null|string|\Throwable
     {
         if (0 === \count($arguments)) {
             return null;

@@ -1,0 +1,27 @@
+name: PHPSpec
+on: push
+jobs:
+    phpspec:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v3
+            -   uses: actions/cache@v3
+                with:
+                    path: '**/vendor'
+                    key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-composer-
+            -   name: "Set COMPOSER_ROOT_VERSION environment variable"
+                uses: "ergebnis/composer-root-version-action@main"
+                with:
+                    branch: "main"
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.2'
+                    coverage: pcov
+            -   uses: php-actions/composer@v6
+                with:
+                    args: --prefer-dist
+                    php_version: '8.2'
+            -   name: PHP Spec
+                run: bin/phpspec run spec

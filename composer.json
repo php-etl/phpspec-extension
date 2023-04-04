@@ -14,6 +14,7 @@
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^8.2",
         "phpspec/phpspec": "^7.0",
@@ -23,8 +24,7 @@
         "symfony/expression-language": "^5.2",
         "symfony/inflector": "^5.2",
         "symfony/property-access": "^5.2",
-        "symfony/cache": "^5.2",
-        "php-etl/metadata": "^0.3@dev"
+        "php-etl/metadata": "^0.3"
     },
     "autoload": {
         "psr-4": {
@@ -43,7 +43,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "0.3.x-dev"
+            "dev-main": "0.4.x-dev"
         }
     },
     "require-dev": {
