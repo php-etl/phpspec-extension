@@ -6,8 +6,6 @@ namespace Kiboko\Component\PHPSpecExtension\FastMap\Comparator;
 
 final class Comparator
 {
-    private static $objectComparator;
-
     public static function isEqual($left, $right): bool
     {
         if (is_object($left) && is_object($right)) {
