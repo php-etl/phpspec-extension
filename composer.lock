@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6c3471ed2e6b0b778e2346a8367262c",
+    "content-hash": "ce1f072f4f51064861b902d971bbb09b",
     "packages": [
         {
             "name": "doctrine/deprecations",
@@ -358,16 +358,16 @@
         },
         {
             "name": "php-etl/metadata",
-            "version": "dev-feature/qualityflow-improvments",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/metadata.git",
-                "reference": "6e1bcc4c1d987558b82cacbf10559c9345fac666"
+                "reference": "9bffcb5387f870b53d3d2cbdcc051495171fa816"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/metadata/zipball/6e1bcc4c1d987558b82cacbf10559c9345fac666",
-                "reference": "6e1bcc4c1d987558b82cacbf10559c9345fac666",
+                "url": "https://api.github.com/repos/php-etl/metadata/zipball/9bffcb5387f870b53d3d2cbdcc051495171fa816",
+                "reference": "9bffcb5387f870b53d3d2cbdcc051495171fa816",
                 "shasum": ""
             },
             "require": {
@@ -380,18 +380,15 @@
             "require-dev": {
                 "friends-of-phpspec/phpspec-code-coverage": "^6.0",
                 "friendsofphp/php-cs-fixer": "^3.0",
-                "johnkary/phpunit-speedtrap": "*",
-                "mybuilder/phpunit-accelerator": "*",
-                "php-etl/phpspec-extension": "^0.3@dev",
+                "php-etl/phpspec-extension": "^0.4",
                 "phpspec/phpspec": "^7.0",
-                "phpunit/phpunit": "^9.5 || ^10.0",
                 "rector/rector": "^0.15"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.3.x-dev",
-                    "dev-feature/qualityflow-improvments": "0.3.x-dev"
+                    "dev-main": "0.4.x-dev"
                 }
             },
             "autoload": {
@@ -416,9 +413,9 @@
             "description": "Describe data structures, to auto-configure and handle data transformation and data manipulation.",
             "support": {
                 "issues": "https://github.com/php-etl/metadata/issues",
-                "source": "https://github.com/php-etl/metadata/tree/feature/qualityflow-improvments"
+                "source": "https://github.com/php-etl/metadata/tree/main"
             },
-            "time": "2023-03-22T16:07:54+00:00"
+            "time": "2023-04-04T09:18:42+00:00"
         },
         {
             "name": "php-etl/metadata-contracts",
@@ -893,16 +890,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.16.1",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "e27e92d939e2e3636f0a1f0afaba59692c0bf571"
+                "reference": "bfec8729f7e23c40670f98e27e694cfdb13fc12a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/e27e92d939e2e3636f0a1f0afaba59692c0bf571",
-                "reference": "e27e92d939e2e3636f0a1f0afaba59692c0bf571",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/bfec8729f7e23c40670f98e27e694cfdb13fc12a",
+                "reference": "bfec8729f7e23c40670f98e27e694cfdb13fc12a",
                 "shasum": ""
             },
             "require": {
@@ -932,9 +929,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.16.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.17.0"
             },
-            "time": "2023-02-07T18:11:17+00:00"
+            "time": "2023-04-04T08:27:19+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
