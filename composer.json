@@ -21,7 +21,7 @@
         "friends-of-phpspec/phpspec-code-coverage": "^6",
         "doctrine/inflector": "^2.0",
         "nikic/php-parser": "^4.10",
-        "php-etl/metadata": "^0.4"
+        "php-etl/metadata": "*"
     },
     "autoload": {
         "psr-4": {
