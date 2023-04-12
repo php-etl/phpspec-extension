@@ -362,25 +362,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/metadata.git",
-                "reference": "a78cc6a0a447b2fb6ded631a6c8a113854bf5bf3"
+                "reference": "0132085f7f2b9a26dfe333135804fd740f0ecdd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/metadata/zipball/a78cc6a0a447b2fb6ded631a6c8a113854bf5bf3",
-                "reference": "a78cc6a0a447b2fb6ded631a6c8a113854bf5bf3",
+                "url": "https://api.github.com/repos/php-etl/metadata/zipball/0132085f7f2b9a26dfe333135804fd740f0ecdd2",
+                "reference": "0132085f7f2b9a26dfe333135804fd740f0ecdd2",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "^2.0",
                 "nikic/php-parser": "^4.9@dev",
                 "php": "^8.2",
-                "php-etl/metadata-contracts": "0.2.0",
+                "php-etl/metadata-contracts": "0.2.*",
                 "phpactor/docblock": "^0.3.0@dev"
             },
             "require-dev": {
                 "friends-of-phpspec/phpspec-code-coverage": "^6.0",
                 "friendsofphp/php-cs-fixer": "^3.0",
-                "php-etl/phpspec-extension": "0.4.0",
+                "php-etl/phpspec-extension": "*",
                 "phpspec/phpspec": "^7.0",
                 "rector/rector": "^0.15"
             },
@@ -414,7 +414,7 @@
                 "issues": "https://github.com/php-etl/metadata/issues",
                 "source": "https://github.com/php-etl/metadata/tree/v0.4.0"
             },
-            "time": "2023-04-06T10:33:57+00:00"
+            "time": "2023-04-12T13:24:15+00:00"
         },
         {
             "name": "php-etl/metadata-contracts",
@@ -889,16 +889,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.18.0",
+            "version": "1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "882eabc9b6a12e25c27091a261397f9c8792e722"
+                "reference": "22dcdfd725ddf99583bfe398fc624ad6c5004a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/882eabc9b6a12e25c27091a261397f9c8792e722",
-                "reference": "882eabc9b6a12e25c27091a261397f9c8792e722",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/22dcdfd725ddf99583bfe398fc624ad6c5004a0f",
+                "reference": "22dcdfd725ddf99583bfe398fc624ad6c5004a0f",
                 "shasum": ""
             },
             "require": {
@@ -928,9 +928,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.18.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.18.1"
             },
-            "time": "2023-04-06T07:26:43+00:00"
+            "time": "2023-04-07T11:51:11+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1485,16 +1485,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "b6f3694c6386c7959915a0037652e0c40f6f69cc"
+                "reference": "43c751b41d74f96cbbd4e07b7aec9675651e2951"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/b6f3694c6386c7959915a0037652e0c40f6f69cc",
-                "reference": "b6f3694c6386c7959915a0037652e0c40f6f69cc",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/43c751b41d74f96cbbd4e07b7aec9675651e2951",
+                "reference": "43c751b41d74f96cbbd4e07b7aec9675651e2951",
                 "shasum": ""
             },
             "require": {
@@ -1536,7 +1536,8 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/environment/issues",
-                "source": "https://github.com/sebastianbergmann/environment/tree/6.0.0"
+                "security": "https://github.com/sebastianbergmann/environment/security/policy",
+                "source": "https://github.com/sebastianbergmann/environment/tree/6.0.1"
             },
             "funding": [
                 {
@@ -1544,7 +1545,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-03T07:03:04+00:00"
+            "time": "2023-04-11T05:39:26+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -2933,16 +2934,16 @@
     "packages-dev": [
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.11",
+            "version": "1.10.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8aa62e6ea8b58ffb650e02940e55a788cbc3fe21"
+                "reference": "7b2aaf999e522e2b10011a594cf06dc37de7fbd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8aa62e6ea8b58ffb650e02940e55a788cbc3fe21",
-                "reference": "8aa62e6ea8b58ffb650e02940e55a788cbc3fe21",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7b2aaf999e522e2b10011a594cf06dc37de7fbd8",
+                "reference": "7b2aaf999e522e2b10011a594cf06dc37de7fbd8",
                 "shasum": ""
             },
             "require": {
@@ -2991,7 +2992,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-04T19:17:42+00:00"
+            "time": "2023-04-12T10:33:29+00:00"
         },
         {
             "name": "rector/rector",
