@@ -20,7 +20,7 @@
         "phpspec/phpspec": "^7.3",
         "friends-of-phpspec/phpspec-code-coverage": "*",
         "doctrine/inflector": "^2.0",
-        "nikic/php-parser": "^4.10",
+        "nikic/php-parser": "^5.6",
         "php-etl/metadata": "*"
     },
     "autoload": {
